@@ -1,0 +1,28 @@
+{
+  "name": "censorjs",
+  "version": "1.0.0",
+  "description": "A JavaScript profanity validator",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://dereksantos@github.com/dereksantos/censorjs.git"
+  },
+  "keywords": [
+    "profanity",
+    "bad",
+    "words",
+    "javascript"
+  ],
+  "author": "Derek Santos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dereksantos/censorjs/issues"
+  },
+  "homepage": "https://github.com/dereksantos/censorjs"
+}

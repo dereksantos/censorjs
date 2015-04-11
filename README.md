@@ -1,2 +1,2 @@
-# profanityjs
+# censorjs
 A JavaScript profanity validator 
