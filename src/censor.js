@@ -24,7 +24,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-/** @namespace */
+/**
+ * @namespace 
+ */
 var Censor = (function() {
 	var utils = {
 		toString : Object.prototype.toString,
@@ -121,20 +123,19 @@ var Censor = (function() {
 					arr.push(word);
 					arr = arr.concat(impl.getVariants(word));
 				});
-				arr = utils.unique(words);
-				impl.words = arr;
+				impl.words = utils.unique(arr);
 			} else {
 				utils.warn("Censor.setWords expected an array but got " + words.toString() + ". This call will be ignored.");
 			}
 		},
 		regex : function() {
 			var joinString = [')',impl.rightMatcher, '|', impl.leftMatcher,'('].join('');
+
 			var words = impl.words.join('sSPLITs');
 			words = words.replace(/([\~\`\!\@\#\$\%\^\&\*\(\)\_\-\+\=\{\}\|\[\]\\\;\:\'\"\,\.\/\<\>\?])/gi, '\\$1');
 			words = words.split('sSPLITs');
 			words = words.join(joinString);
-			var regexString = ['/',impl.leftMatcher,'(',words,')',impl.rightMatcher,'/'].join('');
-			console.log(regexString);
+			var regexString = [impl.leftMatcher,'(',words,')',impl.rightMatcher].join('');
 			return new RegExp(regexString, 'gi');
 		}
 	};
@@ -150,6 +151,13 @@ var Censor = (function() {
 		 * @function
 		 */
 		setWords : impl.setWords,
+		/**
+		 * Gets the current list of words being used for validation.
+		 * @returns {Array}
+		 */
+		getWords : function() {
+			return impl.words;
+		},
 		/**
 		 * Returns a list of word variations spelt using symbols resembling it's characters.
 		 * For example the word <b>test</b> can be spelt as <b>t3s+</b> or <b>te$t</b>.
