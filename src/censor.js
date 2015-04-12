@@ -90,7 +90,7 @@ var Censor = (function() {
 			'z' : ['7']
 		},
 		leftMatcher : '(^|\\s)',
-		rightMatcher : '(?=\\s|$)',
+		rightMatcher : '($|\\s)',
 		getVariants : function(word) {
 			var output,variants;
 			output = [];

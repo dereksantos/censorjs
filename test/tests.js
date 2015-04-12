@@ -27,6 +27,7 @@ describe('Censor', function() {
 			'one should fail',
 			'fail 0ne',
 			'fail 0n3',
+			'fail one fail',
 			'Should two fail.',
 			'+w0 should fail',
 			'one should one fail'
@@ -41,7 +42,7 @@ describe('Censor', function() {
 		});
 		badStrings.forEach(function(str) {
 			it('should return true for string: '+str, function() {
-				assert.equal(censor.test(str), []);
+				assert.equal(censor.test(str), true);
 			});
 		});
 	});
